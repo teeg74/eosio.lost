@@ -26,7 +26,7 @@ typedef std::string ethereum_address;
 #endif
 
 #ifndef WHITELIST_CONTRACT
-#define WHITELIST_CONTRACT "whitelist111"
+#define WHITELIST_CONTRACT "unusedaccnts"
 #endif
 
 
@@ -57,6 +57,7 @@ private:
 
     void assert_unused(name account);
     void assert_whitelisted(name account);
+    void assert_active();
     std::string bytetohex(unsigned char *data, int len);
 
 public:
@@ -71,11 +72,9 @@ public:
 
     ACTION useaccount(name claimer);
 
-    ACTION notify(name claimer);
+    ACTION notify(name claimer, string msg);
 
-    ACTION donotify(name claimer, string msg);
-
-    ACTION clear();
+    ACTION clear(uint64_t count);
 
 };
 
